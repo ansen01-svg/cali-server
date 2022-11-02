@@ -41,7 +41,7 @@ app.use(pageNotFound);
 app.use(errorHandler);
 
 //port---------------------------
-let port = process.env.PORT || 5001
+let port = process.env.PORT || 5002
 
 //start the app------------------
 let server = app.listen(port, () => console.log(`server is listening on ${port}...`))
