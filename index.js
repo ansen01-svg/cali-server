@@ -35,7 +35,7 @@ app.use(mongoSanitize());
 app.use(morgan('tiny'));
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.use('/', (req, res) => {
     res.status(200).json(`Welcome to cali server`)
 })
 
