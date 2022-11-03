@@ -9,8 +9,12 @@ const socketMain = (io, socket) => {
 const initialConnection = (socket, data) => {
     let { url, site, event } = data
 
+    console.log('getting data')
     scrapper(url, site, event)
-    .then(data => socket.emit('fixtures', data))
+    .then(data => {
+        console.log(data)
+        socket.emit('fixtures', data)
+    })
     .catch(error => {
         console.log(error)
         socket.emit('error', error)
