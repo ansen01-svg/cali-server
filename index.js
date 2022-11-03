@@ -50,7 +50,7 @@ let server = app.listen(port, () => console.log(`server is listening on ${port}.
 
 //start the socket---------------
 let io = socket(server, {
-    cors : { origin : "http://localhost:3000" }
+    cors : { origin : process.env.CLIENT }
 })
 
 io.on('connection', socket => {
