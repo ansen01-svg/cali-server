@@ -35,13 +35,15 @@ app.use(mongoSanitize());
 app.use(morgan('tiny'));
 app.use(express.json());
 
-// app.use('/apis/v1/fixtures', route);
+app.get('/', (req, res) => {
+    res.status(200).json(`Welcome to cali server`)
+})
 
 app.use(pageNotFound);
 app.use(errorHandler);
 
 //port---------------------------
-let port = process.env.PORT || 5002
+let port = process.env.PORT || 5005
 
 //start the app------------------
 let server = app.listen(port, () => console.log(`server is listening on ${port}...`))
