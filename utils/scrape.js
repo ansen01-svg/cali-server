@@ -15,7 +15,6 @@ let scrapper = async (url, site, event) => {
     //for upcoming 22bet events-----------------
     if (site === '22bet' && event === 'Upcoming') {
         await page.goto(url)
-        // await page.click('#pushfree > div > div > div > div > div.pf-subs-btn-container-th-4 > div:nth-child(1) > a')
 
         let result = await page.evaluate(upcoming22BetData)
 
@@ -34,7 +33,6 @@ let scrapper = async (url, site, event) => {
     //for upcoming 1xbet events-----------------
     else if (site === '1xBet' && event === 'Upcoming') {
         await page.goto(url, { waitUntil : 'networkidle0' })
-        // await page.click('#pushfree > div > div > div > div > div.pf-subs-btn-container-th-4 > div:nth-child(1) > a')
     
         let result = await page.evaluate(upcoming1xBetData)
     
@@ -44,7 +42,6 @@ let scrapper = async (url, site, event) => {
     //for live 1xbet events----------------------
     else {
         await page.goto(url, { waitUntil : 'networkidle0' })
-        // await page.click('#pushfree > div > div > div > div > div.pf-subs-btn-container-th-4 > div:nth-child(1) > a')
 
         let result = await page.evaluate(live1xBetdata)
 
@@ -53,10 +50,6 @@ let scrapper = async (url, site, event) => {
     }
 
 }
-
-// scrapper("https://22bets.me/live/football", '22bet', 'Live')
-// .then(data => console.log(data))
-// .catch(err => console.log(err))
 
 
 module.exports = scrapper;

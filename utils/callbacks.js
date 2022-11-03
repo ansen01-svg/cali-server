@@ -64,7 +64,7 @@ let upcoming22BetData = () => {
 let live22BetData = () => {
     let data = [];
     let divs = [...document.querySelectorAll('.c-events__item_col')]
-
+console.log('before loop')
     for (let div of divs) {
         let team1 = div.firstChild.children[1].firstChild.children[0].innerText;
         let team2 = div.firstChild.children[1].firstChild.children[1].innerText;
@@ -80,6 +80,8 @@ let live22BetData = () => {
         let gameInfo = { team1, team2, scores : [score1, score2], w1, x, w2, id, time : { current : (time ? time : '00:00') } }
         data = [...data, gameInfo]
     }
+console.log('after loop')
+
 
     return data;
 }
