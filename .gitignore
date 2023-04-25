@@ -2,3 +2,4 @@
 /utils/scrapper.js
 /controllers
 /routes
+.env
