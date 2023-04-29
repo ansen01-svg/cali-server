@@ -10,24 +10,24 @@ const initialConnection = async(socket, data) => {
     let { url, site, event } = data
 
     console.log('getting data')
-    // scrapper(url, site, event)
-    // .then(data => {
-    //     console.log(data)
-    //     socket.emit('fixtures', data)
-    // })
-    // .catch(error => {
-    //     console.log(error)
-    //     socket.emit('error', error)
-    // })
-
-    try {
-        const data = await scrapper(url, site, event)
+    scrapper(url, site, event)
+    .then(data => {
         console.log(data)
         socket.emit('fixtures', data)
-    } catch (error) {
+    })
+    .catch(error => {
         console.log(error)
         socket.emit('error', error)
-    }
+    })
+
+    // try {
+    //     const data = await scrapper(url, site, event)
+    //     console.log(data)
+    //     socket.emit('fixtures', data)
+    // } catch (error) {
+    //     console.log(error)
+    //     socket.emit('error', error)
+    // }
 }
 
 
