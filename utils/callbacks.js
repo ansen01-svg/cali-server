@@ -42,6 +42,7 @@ let upcoming1xBetData = () => {
 let upcoming22BetData = () => {
     let data = ['data']
     let divs = [...document.querySelectorAll('.c-events__item_col')]
+    console.log(divs)
     
     for (let div of divs) {
         let team1 = div.firstChild.children[1].firstChild.children[0].innerText;
@@ -57,7 +58,6 @@ let upcoming22BetData = () => {
 
         data = [...data, gameInfo]
     }
-
     return data;
 }
 
