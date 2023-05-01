@@ -59,7 +59,7 @@ let scrapper = (url, site, event) => {
             args: ['--no-sandbox', '--disable-setuid-sandbox'],
         })
         let page = await browser.newPage()
-        await page.setDefaultTimeout(20000)
+        await page.setDefaultTimeout(130000)
     
         //for upcoming 22bet events-----------------
         if (site === '22bet' && event === 'Upcoming') {
