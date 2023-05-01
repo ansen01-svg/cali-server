@@ -18,15 +18,6 @@ const initialConnection = async(socket, data) => {
         console.log(error)
         socket.emit('error', error)
     })
-
-    // try {
-    //     const data = await scrapper(url, site, event)
-    //     console.log(data)
-    //     socket.emit('fixtures', data)
-    // } catch (error) {
-    //     console.log(error)
-    //     socket.emit('error', error)
-    // }
 }
 
 
