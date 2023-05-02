@@ -40,7 +40,7 @@ let upcoming1xBetData = () => {
 }
 
 let upcoming22BetData = () => {
-    let data = ['data']
+    let data = []
     let divs = [...document.querySelectorAll('.c-events__item_col')]
     
     for (let div of divs) {

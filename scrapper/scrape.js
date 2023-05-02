@@ -1,19 +1,19 @@
 let puppeteer = require('puppeteer');
 let { 
-    live1xBetdata, upcoming1xBetData, upcoming22BetData, live22BetData
- } = require('./callbacks');
+   live1xBetdata, upcoming1xBetData, upcoming22BetData, live22BetData
+} = require('./callbacks');
 
 
-let scrapper = async (url, site, event) => {
+let scrapper = async(url, site, event) => {
     let browser = await puppeteer.launch({ 
         headless : true,
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
     })
     let page = await browser.newPage()
-    await page.setDefaultTimeout(2000)
+    await page.setDefaultTimeout(16000)
 
     //for upcoming 22bet events-----------------
-    if (site === '22bet' && event === 'Upcoming') {
+    if (site === '22bet' && event === 'Upcoming'){
         await page.goto(url)
 
         let result = await page.evaluate(upcoming22BetData)
@@ -22,7 +22,7 @@ let scrapper = async (url, site, event) => {
         return result;
     }
     //for live 22bet events---------------------
-    else if (site === '22bet' && event === 'Live') {
+    else if (site === '22bet' && event === 'Live'){
         await page.goto(url)
     
         let result = await page.evaluate(live22BetData)
@@ -31,7 +31,7 @@ let scrapper = async (url, site, event) => {
         return result;
     }
     //for upcoming 1xbet events-----------------
-    else if (site === '1xBet' && event === 'Upcoming') {
+    else if (site === '1xBet' && event === 'Upcoming'){
         await page.goto(url, { waitUntil : 'networkidle0' })
     
         let result = await page.evaluate(upcoming1xBetData)
@@ -48,7 +48,6 @@ let scrapper = async (url, site, event) => {
         await browser.close()
         return result;
     }
-
 }
 
 
