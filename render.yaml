@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: my-node-app
+    env: node
+    plan: free
+    buildCommand: |
+      # Install Chromium
+      apt-get update && apt-get install -y chromium-browser
+
+      # Set environment variable to ensure Puppeteer downloads Chromium
+      export PUPPETEER_SKIP_DOWNLOAD=false
+
+      # Install project dependencies
+      yarn install
+    startCommand: yarn start
