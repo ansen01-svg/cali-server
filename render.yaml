@@ -4,6 +4,12 @@ services:
     env: node
     plan: free
     buildCommand: |
+      # Add Swap Memory
+      fallocate -l 4G /tmp/swapfile
+      chmod 600 /tmp/swapfile
+      mkswap /tmp/swapfile
+      swapon /tmp/swapfile
+
       # Install Chromium
       apt-get update && apt-get install -y chromium-browser
 
@@ -12,4 +18,8 @@ services:
 
       # Install project dependencies
       yarn install
+
+      # Remove Swap Memory after installation
+      swapoff /tmp/swapfile
+      rm /tmp/swapfile
     startCommand: yarn start
