@@ -13,14 +13,12 @@ services:
       # Install Chromium
       apt-get update && apt-get install -y chromium-browser
 
-      # Set environment variable to ensure Puppeteer downloads Chromium
+      # Set environment variable to ensure Puppeteer uses installed Chromium
       export PUPPETEER_SKIP_DOWNLOAD=false
+      export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
       # Install project dependencies
       yarn install
-
-      # Set Puppeteer executable path to installed Chromium
-      export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
       # Remove Swap Memory after installation
       swapoff /tmp/swapfile
