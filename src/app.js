@@ -1,22 +1,13 @@
-//dependencies-----------------
-require("dotenv").config();
 require("express-async-errors");
-
 let express = require("express");
-let socket = require("socket.io");
-
-let app = express();
-
-let pageNotFound = require("./middlewares/page_not_found");
-let errorHandler = require("./middlewares/error_handler");
-let socketMain = require("./socket");
-
 let cors = require("cors");
 let helmet = require("helmet");
 let xssClean = require("xss-clean");
 let mongoSanitize = require("express-mongo-sanitize");
 let morgan = require("morgan");
 let rateLimiter = require("express-rate-limit");
+
+let app = express();
 
 //middlewares-----------------
 app.set("trust proxy", 1);
@@ -43,22 +34,4 @@ app.use("/", (req, res) => {
   res.status(200).json(`Welcome to cali server`);
 });
 
-app.use(pageNotFound);
-app.use(errorHandler);
-
-//port---------------------------
-let port = process.env.PORT || 5005;
-
-//start the app------------------
-let server = app.listen(port, () =>
-  console.log(`server is listening on ${port}...`)
-);
-
-//start the socket---------------
-let io = socket(server, {
-  cors: { origin: process.env.CLIENT },
-});
-
-io.on("connection", (socket) => {
-  socketMain(io, socket);
-});
+module.exports = app;
