@@ -15,7 +15,11 @@ services:
 
       # Set environment variable to ensure Puppeteer uses installed Chromium
       export PUPPETEER_SKIP_DOWNLOAD=false
-      export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+
+      # Find Chromium executable path and set it
+      CHROMIUM_PATH=$(which chromium-browser || which chromium)
+      echo "Chromium path: $CHROMIUM_PATH"
+      export PUPPETEER_EXECUTABLE_PATH=$CHROMIUM_PATH
 
       # Install project dependencies
       yarn install
