@@ -4,7 +4,7 @@
   "description": "server from my web scrapper app",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npx puppeteer browsers install chrome --cache-dir=/opt/render/.cache/puppeteer",
+    "preinstall": "PUPPETEER_CACHE_DIR=/opt/render/.cache/puppeteer npx puppeteer browsers install chrome",
     "start": "nodemon src/index.js"
   },
   "keywords": [],
