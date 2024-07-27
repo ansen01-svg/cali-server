@@ -6,7 +6,7 @@ let socketMain = require("./socket");
 let port = process.env.PORT || 5005;
 
 let server = app.listen(port, () =>
-  console.log(`server is listening on ${port}...`)
+  console.log(`server is listening on port ${port}...`)
 );
 
 let io = socket(server, {

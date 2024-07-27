@@ -11,10 +11,10 @@ const scrapper = async (url, site, event) => {
     executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    timeout: 60000,
+    timeout: 120000,
   });
   const page = await browser.newPage();
-  await page.setDefaultTimeout(60000);
+  await page.setDefaultTimeout(120000);
 
   let result;
 
