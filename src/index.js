@@ -9,6 +9,8 @@ let server = app.listen(port, () =>
   console.log(`server is listening on port ${port}...`)
 );
 
+server.timeout = 0;
+
 let io = socket(server, {
   cors: { origin: process.env.CLIENT },
 });
