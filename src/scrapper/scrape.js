@@ -14,7 +14,7 @@ const scrapper = async (url, site, event) => {
     timeout: 120000,
   });
   const page = await browser.newPage();
-  await page.setDefaultTimeout(120000);
+  await page.setDefaultTimeout(140000);
 
   let result;
 

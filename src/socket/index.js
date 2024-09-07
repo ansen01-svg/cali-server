@@ -11,7 +11,7 @@ const initialConnection = async (socket, data) => {
   console.log("getting data");
   scrapper(url, site, event)
     .then((data) => {
-      console.log(data.length);
+      console.log(data?.length);
       socket.emit("fixtures", data);
     })
     .catch((error) => {

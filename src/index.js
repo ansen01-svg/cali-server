@@ -12,7 +12,7 @@ let server = app.listen(port, () =>
 server.timeout = 0;
 
 let io = socket(server, {
-  cors: { origin: process.env.CLIENT },
+  cors: { origin: "*" },
 });
 
 io.on("connection", (socket) => {

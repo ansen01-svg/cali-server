@@ -20,7 +20,7 @@ app.use(
 
 app.use(
   cors({
-    origin: "0.0.0.0",
+    origin: "*",
   })
 );
 app.use(helmet());
